@@ -2,8 +2,26 @@ name: MakeRFC
 on: [push]
 jobs:
   Build-RFC:
+
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+
+      - name: switching from HTTPS to SSH
+        run: git remote set-url origin ${{ secrets.ssh }}
+      - name: check for changes
+        run: git status
+      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto updating TODO.txt"
+#      - name: fetch from master
+#        run: git fetch origin master
+#      - name: push code to master
+#        run: git push origin HEAD:master
+
       - name: ls
         run: ls
       - name: pwd
