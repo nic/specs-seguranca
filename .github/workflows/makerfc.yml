@@ -6,24 +6,31 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: ls
-        run: ls
-
       - name: Current Branch
         run: git branch
 
+      # open-banking-brasil-certificate-standards
+      - name: makerfc open-banking-brasil-certificate-standards-1_ID1-ptbr.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-certificate-standards-1_ID1-ptbr.md
+      - name: makerfc open-banking-brasil-certificate-standards-1_ID1.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-certificate-standards-1_ID1.md
+
+      # open-banking-brasil-dynamic-client-registration
+      - name: makerfc open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.md
+      - name: makerfc open-banking-brasil-dynamic-client-registration-1_ID2.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-dynamic-client-registration-1_ID2.md
+
+      # open-banking-brasil-financial-api
       - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
         run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+      - name: makerfc open-banking-brasil-financial-api-1_ID3.md
+        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3.md
 
-      - name: stage changed files
-        run: git add .
-      - name: commit changed files
-        run: git commit -m "Auto updating TODO.txt"
-#      - name: fetch from master
-#        run: git fetch origin master
-#      - name: push code to master
-#        run: git push origin HEAD:master
-
-#      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
-#        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
-
+      - name: Commit
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Generated HTML"
+          git push
