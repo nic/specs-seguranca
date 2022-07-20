@@ -8,5 +8,8 @@ jobs:
       volumes:
         - /home/runner/work/specs-seguranca/specs-seguranca:/data
     steps:
-      - name: open-banking-brasil-financial-api-1_ID3-ptbr.md
-        run: cd /data && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
+      - name: ls
+        run: ls
+      - name: pwd
+        run: pwd
+#        run: cd /data && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
