@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: upnic/makerfc
+      options: -v /__w/specs-seguranca/specs-seguranca:/data:rw
     steps:
       - name: ls-w
         run: ls /__w
@@ -17,6 +18,9 @@ jobs:
 
       - name: ls-/github/home
         run: ls /github/home
+
+      - name: ls-data
+        run: ls /data
 
       - name: ls-root
         run: ls /
