@@ -4,6 +4,10 @@ jobs:
   Build-RFC:
     runs-on: ubuntu-latest
     steps:
-      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
-        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+      - name: ls
+        run: ls
+      - name: pwd
+        run: pwd
+#      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+#        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
 
