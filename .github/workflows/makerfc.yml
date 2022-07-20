@@ -1,0 +1,12 @@
+name: MakeRFC
+on: [push]
+jobs:
+  Build-RFC:
+    runs-on: ubuntu-latest
+    container:
+      image: upnic/makerfc
+      volumes:
+        - /home/runner/work/specs-seguranca/specs-seguranca:/data
+    steps:
+      - name: open-banking-brasil-financial-api-1_ID3-ptbr.md
+        run: /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
