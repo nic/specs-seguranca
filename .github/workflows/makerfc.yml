@@ -6,21 +6,20 @@ jobs:
     container:
       image: upnic/makerfc
     steps:
-      - name: ls
-        run: ls
-      - name: pwd
-        run: pwd
-      - name: ls-e
-        run: ls /__e
-      - name: ls-t
-        run: ls /__t
       - name: ls-w
         run: ls /__w
+
       - name: ls-/__w/specs-seguranca
         run: ls /__w/specs-seguranca
-      - name: ls-/specs-seguranca
+
+      - name: ls-/__w/specs-seguranca/specs-seguranca
+        run: ls /__w/specs-seguranca/specs-seguranca
+
+      - name: ls-/github/home
         run: ls /github/home
+
       - name: ls-root
         run: ls /
+
       - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
-        run: cd /github/home && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
+        run: cd /__w/specs-seguranca/specs-seguranca && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
