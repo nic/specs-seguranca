@@ -5,8 +5,13 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
+      - name: ls
+        run: ls
+      - name: pwd
+        run: pwd
+        
       - name: switching from HTTPS to SSH
         run: git remote set-url origin ${{ secrets.ssh }}
       - name: check for changes
@@ -22,10 +27,6 @@ jobs:
 #      - name: push code to master
 #        run: git push origin HEAD:master
 
-      - name: ls
-        run: ls
-      - name: pwd
-        run: pwd
 #      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
 #        run: docker run -v `pwd`:/data upnic/makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
 
