@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: upnic/makerfc
-      volumes:
-        - /home/runner/work/specs-seguranca/specs-seguranca:/data
     steps:
       - name: ls
         run: ls
@@ -18,6 +16,11 @@ jobs:
         run: ls /__t
       - name: ls-w
         run: ls /__w
+      - name: ls-/__w/specs-seguranca
+        run: ls /__w/specs-seguranca
+      - name: ls-/specs-seguranca
+        run: ls /github/home
       - name: ls-root
         run: ls /
-#        run: cd /data && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
+      - name: makerfc open-banking-brasil-financial-api-1_ID3-ptbr.md
+        run: cd /github/home && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
