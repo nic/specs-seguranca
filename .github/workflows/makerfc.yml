@@ -12,4 +12,8 @@ jobs:
         run: ls
       - name: pwd
         run: pwd
+      - name: ls-data
+        run: ls /data
+      - name: ls-root
+        run: ls /
 #        run: cd /data && /usr/local/bin/make.sh open-banking-brasil-financial-api-1_ID3-ptbr.md
