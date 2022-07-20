@@ -1,0 +1,8 @@
+name: PWD
+on: [push]
+jobs:
+  Build-RFC:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pwd
+        run: pwd
